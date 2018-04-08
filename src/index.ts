@@ -1,5 +1,6 @@
 export * from './Const'
 export * from './LogModel'
+export * from './LogCRUD'
 export * from './DbHelper'
 export * from './interface/ILog'
 export * from './interface/ILogModel'
