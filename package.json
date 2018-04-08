@@ -1,7 +1,7 @@
 {
   "name": "klg-log-model",
-  "version": "1.0.0",
-  "description":  "klg log model",
+  "version": "1.0.1",
+  "description": "klg log model",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
