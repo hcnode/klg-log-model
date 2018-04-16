@@ -17,7 +17,7 @@ export class LogCRUD {
     return await new this._model(log).save()
   }
 
-  async saveResponseAsync (id: string, responseAsync: object) {
-    return await this._model.findByIdAndUpdate(id, {responseAsync})
+  async patchSave (logs: Array<object>) {
+    return await this._model.create(logs)
   }
 }

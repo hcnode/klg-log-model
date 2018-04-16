@@ -9,8 +9,11 @@ describe('LogCRUD test', async function () {
   const log = {
     userId: 'uu',
     requestId: '122342343',
-    type: 'in',
-    useTime: 109
+    name: 'in',
+    tags: {
+      url: 'hao123',
+      query: {a: 1}
+    }
   }
 
   beforeAll(async () => {
@@ -29,25 +32,12 @@ describe('LogCRUD test', async function () {
     expect(logs[0].requestId).toEqual(log.requestId)
   })
 
-  it(' update responseAsync', async () => {
-    const fLog = await Log.model.findOne()
-    expect(fLog.requestId).toEqual(log.requestId)
-    // fLog.responseAsync = {
-    //   code: 0,
-    //   msg: 'ok'
-    // }
-    // await fLog.save()
-    await Log.saveResponseAsync(fLog.id, {
-      code: 0,
-      msg: 'ok'
-    })
+  it(' patch save ', async () => {
+    await Log.patchSave([log, log])
 
-    const newLog = await Log.model.findOne()
-    console.log('newLog', newLog)
-    expect(newLog.responseAsync).toEqual({
-      code: 0,
-      msg: 'ok'
-    })
+    const count = await Log.model.count({})
+    console.log('count', count)
+    expect(count).toEqual(3)
   })
 
   afterAll((done) => {
