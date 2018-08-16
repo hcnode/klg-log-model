@@ -4,18 +4,14 @@
 export interface ILog {
   userId: string
   requestId: string
-  name: string
-  timestamp: number
-  duration: number
-  tags: {
-    'httpMethod': string
-    'url': string
-    'hostname': string
-    'port': number
-    'query': object
-    'body': object
-    'response': object
-    'response_size': number
-    'status_code': string
-  }
+  type: string
+  server?: string
+  useTime: number
+  interfaceName: string
+  httpMethod: string
+  retryTimes?: string
+  url: string
+  body: object
+  response: object
+  responseAsync: object
 }

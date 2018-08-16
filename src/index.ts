@@ -1,4 +1,3 @@
-export * from './Const'
 export * from './LogModel'
 export * from './LogCRUD'
 export * from './DbHelper'
